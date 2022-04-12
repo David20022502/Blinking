@@ -37,17 +37,6 @@ if (locale) {
 } else {
   I18n.setLanguage("en");
 }
-
-/*export default function App() {
-  return (<View>
-    <Text> holaasddddddddddddddddd </Text>
-    <Text> holaasddddddddddddddddd </Text>
-    <Text> holaasddddddddddddddddd </Text>
-    <Text> holaasddddddddddddddddd </Text>
-    <Text> holaasddddddddddddddddd </Text>
-  </View>);
-}*/
-
 export default function App() {
   const isLoadingComplete = useCachedResources();
   if (!isLoadingComplete) {
