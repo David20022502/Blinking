@@ -25,7 +25,7 @@ export default function MBInitialized() {
             await Location.requestForegroundPermissionsAsync();
         }
 
-       // loadPermissions();
+       loadPermissions();
     }, []);
 
     return (
