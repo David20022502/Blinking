@@ -11,7 +11,7 @@ import {navigateToRouteBlink, registerForPushNotificationsAsync} from "../../fun
 import { createOrValidateCode, updateMBUser } from "../graphql/mutations";
 import {TxStatus, TxType} from "../API";
 import {getMBTransaction} from "../graphql/queries";
-
+//cambios
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
         shouldShowAlert: true,
