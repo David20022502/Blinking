@@ -58,6 +58,11 @@ export default function SignIn() {
                                    marginTop: -180,
                                    marginBottom: -230
                                }}/>
+                        <View style={{ padding: 5 }}>
+                                <Text  style={ { fontSize: 25 ,fontWeight: "bold",     color: "#0b57a5", alignSelf: "center",}}>
+                                        CORRESPONSAL
+                                </Text>
+                        </View>
                         <View style={{marginBottom: 20}}>
                             <TextInput mode='outlined'
                                        label={I18n.get('USERNAME_INPUT')}

@@ -19,6 +19,9 @@ import UnauthenticatedNav from "./UnauthenticatedNav";
 import SignUp1 from '../src/Security/SignUp1';
 import HomeNav from '../src/Home/HomeNav';
 import MBDrawerNavigation from './MBDrawerNavigation';
+import VerifyInformation from '../screens/VerifyInformation';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Movement } from '../screens/Movement';
 /*
 import NotFoundScreen from "../screens/NotFoundScreen";
 import HomeNav from "../src/Home/HomeNav";
@@ -43,7 +46,7 @@ export default function Navigation() {
             }
             {
                 updatedAuthType === StatusLoginType.LOGGED_IN &&
-                <RootNavigator/>
+                <UserAutenticated/>
             }
             {
                 updatedAuthType === StatusLoginType.LOGGED_OUT &&
@@ -55,6 +58,30 @@ export default function Navigation() {
 
 // A root stack navigator is often used for displaying modals on top of all other content
 // Read more here: https://reactnavigation.org/docs/modal
+
+const Stack = createStackNavigator();
+
+ function UserAutenticated() {
+    return (
+      <Stack.Navigator
+        initialRouteName="VerifyInformation"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="VerifyInformation" component={VerifyInformation} />
+        <Stack.Screen name="Movement" component={Movement} />
+      </Stack.Navigator>
+    );
+  
+    
+  }
+
+
+
+
+
+
 
 const Drawer = createDrawerNavigator<RootDrawerNavParams>();
 const { width } = Dimensions.get("window");

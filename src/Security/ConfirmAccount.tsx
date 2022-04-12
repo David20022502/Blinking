@@ -2,7 +2,7 @@ import React, {useState, Fragment, useContext} from "react";
 import {Image, SafeAreaView, ScrollView, StyleSheet, View} from "react-native";
 import {Formik} from "formik";
 import * as Yup from 'yup';
-import {Button, Dialog, HelperText, Paragraph, Portal, TextInput} from "react-native-paper";
+import {Button, Dialog, HelperText, Paragraph, Portal, TextInput,Text} from "react-native-paper";
 import {Auth, I18n} from "aws-amplify";
 import Constants from "expo-constants";
 
@@ -49,6 +49,11 @@ export default function ConfirmAccount({ route, navigation }) {
                     marginTop: -200,
                     marginBottom: -220
                 }}/>
+                <View style={{ padding: 5 }}>
+                                <Text  style={ { fontSize: 25 ,fontWeight: "bold",     color: "#0b57a5", alignSelf: "center",}}>
+                                        CORRESPONSAL
+                                </Text>
+                        </View>
                 <Formik
                     initialValues={infoConfirm}
                     validationSchema={

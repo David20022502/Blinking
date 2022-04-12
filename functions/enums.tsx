@@ -29,3 +29,9 @@ export enum MoneyBlinksContactType {
     MB_CONTACTS,
     PHONE_CONTACTS
 }
+
+//para ver los estados de verificar information
+export enum UserVerifyType {
+    WITH_DATA,
+    WITHOUT_DATA
+}

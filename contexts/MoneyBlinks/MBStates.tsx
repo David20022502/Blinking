@@ -14,7 +14,7 @@ import {
     LOADING_AWS_USER,
     LOADING_END,
     LOADING_MB_USER, LOADING_NOTIFICATIONS,
-    LOADING_START, NOTIFICATIONS_LOAD,
+    LOADING_START, LOADING_USER_VERIFY, NOTIFICATIONS_LOAD,
     REGISTER_AWS, UPDATED_ACCOUNT_INFO, USER_UPDATE_NOTIFICATIONS
 } from "./MBTypes";
 import MBContext from "./MBContext";
@@ -23,6 +23,7 @@ import {StatusLoginType} from "../../functions/enums";
 import {byNickname, listMyNotifications} from "../../src/graphql/queries";
 import {createMBUser, updateMBUser} from "../../src/graphql/mutations";
 import {ModelSortDirection} from "../../src/API";
+import { getData } from "../../src/Services/DataTransaction";
 
 // @ts-ignore
 export default function MBStates({children}) {
@@ -38,7 +39,9 @@ export default function MBStates({children}) {
             regMoneyBlinks: null,
             updatedAccountInfo: null,
             notifications: null,
-            updateNotifications: null
+            updateNotifications: null,
+            //PARA CARGAR LOS DATOS DE DE VERIFICAR
+            userVerify:null
         }),
         []
     );
@@ -46,6 +49,19 @@ export default function MBStates({children}) {
     const [state, dispatch] = useReducer(MBReducer, initialState);
     const [color, setColor] = useState(themeDefault.colors.notification);
     const [message, setMessage] = useState<string | null>(null);
+    
+    //funcion para cargar los datos verificar username
+    const handleLoadUserVerify=useCallback((code:any)=>{
+        console.log("apunto de entrar a buscar")
+        let userVerifyData=getData(code);
+        console.log("dato encontrado de servicios",userVerifyData)
+        dispatch({type:LOADING_USER_VERIFY,payload:userVerifyData});
+        console.log("despues del dispatch")
+
+    },[])
+
+
+    //** */
 
     const handleLoading = useCallback((isLoading: boolean) => {
         dispatch({type: isLoading ? LOADING_START : LOADING_END});
@@ -261,6 +277,8 @@ export default function MBStates({children}) {
     return (
         <MBContext.Provider
             value={{
+                //para sacar datos
+                userVerify: state.userVerify,
                 awsUser: state.awsUser,
                 mbUser: state.mbUser,
                 isLoading: state.isLoading,
@@ -284,7 +302,9 @@ export default function MBStates({children}) {
                 handleUpdateUser,
                 handleAccountInfoUpdated,
                 handleNotifications,
-                handleUpdateNotifications
+                handleUpdateNotifications,
+                //para llmar a verify
+                handleLoadUserVerify
             }}>
             {children}
             <Snackbar

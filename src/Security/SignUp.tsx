@@ -145,6 +145,11 @@ export default function SignUp() {
                            marginTop: -220,
                            marginBottom: -250
                        }}/>
+                       <View style={{ padding: 5 }}>
+                                <Text  style={ { fontSize: 25 ,fontWeight: "bold",     color: "#0b57a5", alignSelf: "center",}}>
+                                        CORRESPONSAL
+                                </Text>
+                        </View>
                 <Formik
                     initialValues={{
                         username: '',

@@ -43,6 +43,11 @@ export default function ForgotPassword({ route, navigation }: any) {
                            marginTop: -200,
                            marginBottom: -200
                        }}/>
+                       <View style={{ padding: 5 }}>
+                                <Text  style={ { fontSize: 25 ,fontWeight: "bold",     color: "#0b57a5", alignSelf: "center",}}>
+                                        CORRESPONSAL
+                                </Text>
+                        </View>
                 {
                     error && (
                         <Text style={{

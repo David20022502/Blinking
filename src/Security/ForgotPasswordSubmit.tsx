@@ -54,6 +54,11 @@ export default function ForgotPasswordSubmit({ route, navigation }: any) {
                            marginTop: -220,
                            marginBottom: -220
                        }}/>
+                       <View style={{ padding: 5 }}>
+                                <Text  style={ { fontSize: 25 ,fontWeight: "bold",     color: "#0b57a5", alignSelf: "center",}}>
+                                        CORRESPONSAL
+                                </Text>
+                        </View>
                 {
                     error && (
                         <Text style={{

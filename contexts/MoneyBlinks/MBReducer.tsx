@@ -12,7 +12,7 @@ import {
     LOADING_END,
     LOADING_MB_USER, LOADING_NOTIFICATIONS,
     LOADING_REGISTER,
-    LOADING_START, NOTIFICATIONS_LOAD, REGISTER_AWS, UPDATED_ACCOUNT_INFO, USER_UPDATE_NOTIFICATIONS
+    LOADING_START, LOADING_USER_VERIFY, NOTIFICATIONS_LOAD, REGISTER_AWS, UPDATED_ACCOUNT_INFO, USER_UPDATE_NOTIFICATIONS
 } from "./MBTypes";
 import {StatusLoginType} from "../../functions/enums";
 
@@ -139,6 +139,11 @@ export default function MBReducer(state: any, action: any) {
             return {
                 ...state,
                 updateNotifications: payload
+            };
+        case LOADING_USER_VERIFY:
+            return {
+                ...state,
+                userVerify: payload
             };
 
         default:
