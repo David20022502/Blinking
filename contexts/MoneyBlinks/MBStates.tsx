@@ -87,6 +87,8 @@ export default function MBStates({children}) {
         } catch (e) {
             dispatch({type: FAILED_AUTH_TYPE});
         }
+        //para eliminar los datos guardados en veridyInformation
+        dispatch({type: LOADING_USER_VERIFY,payload:null});
     }, []);
 
     const handleAuthenticatedUser = useCallback(async () => {

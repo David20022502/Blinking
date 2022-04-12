@@ -11,7 +11,7 @@ export default function VerifyInformation (props:any) {
     const { navigation } = props;
 
   //CURP: código alfanumérico de identificación que consta de 18 dígitos
-  const { handleLogout, handleLoadUserVerify,userVerify}: any = useContext(MBContext);
+  const { handleLogout, handleLoadUserVerify,userVerify,mbUser}: any = useContext(MBContext);
   const [step, setStep] = useState(UserVerifyType.WITHOUT_DATA);
   const [curp, setCurp] = useState<any>(null);
   const [text, setText] = useState<any>(null);
@@ -129,10 +129,21 @@ async function loadUserVerifyInformation() {
 
   return (
     <View style={styles.container}>
-      <View style={{ marginTop: 40 }}>
-        <Text style={styles.titleStyle}> VERIFICA LOS DATOS </Text>
+     
+           
+      
+      <View style={{ marginTop: 1 }}>
+        <Text style={styles.titleStyle}> TRANSACCIONES </Text>
       </View>
-
+      <View style={{flexDirection:"row",justifyContent:"center",marginBottom:50}}>
+      <Text style={styles.textStyleHeader1}>
+             Bienvenido: 
+            </Text>
+      <Text style={styles.textStyleHeader}>
+             {mbUser?.fullName}
+            </Text>
+      </View>
+           
       <ScrollView>
         <View style={styles.view2}>
           <View>
@@ -236,8 +247,8 @@ const styles = StyleSheet.create({
   titleStyle: {
     color: "#0b57a5",
     fontSize: 24,
-    marginVertical: 10,
-    marginBottom: 50,
+    marginVertical:20,
+    marginBottom: 5,
     textAlign: "center",
   },
   textStyle: {
@@ -245,6 +256,26 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 10,
     textAlign: "justify",
+  },
+  textStyleTitle: {
+    color: "#979797",
+    fontSize: 16,
+    marginVertical: 2,
+    textAlign: "justify",
+  },
+  textStyleHeader:{
+    color: "#979797",
+    fontSize: 17,
+    paddingTop:10,
+    textAlign: "justify",
+    marginHorizontal:30
+  },
+  textStyleHeader1:{
+    color: "#979797",
+    fontSize: 21,
+    paddingTop:6,
+    textAlign: "justify",
+    marginLeft:30
   },
   buttons: {
     backgroundColor: "#00C7B1",
